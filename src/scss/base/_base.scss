@@ -1,0 +1,11 @@
+@use "../abstracts" as *;
+
+body {
+    -webkit-font-smoothing: antialiased;
+}
+
+[data-bs-theme="dark"] {
+    color-scheme: dark;
+
+    .kpi-card { box-shadow: none; }
+}

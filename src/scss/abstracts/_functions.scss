@@ -1,0 +1,22 @@
+@use "sass:math";
+@use "sass:map";
+@use "tokens" as t;
+
+@function rem($px, $base: 16px) {
+ @if math.unit($px) != "px" {
+ @error "rem() espera px y recibió `#{$px}`."; }
+
+@return math.div($px, $base) * 1rem;
+
+}
+
+@function token($map, $key) {
+@if not map.has-key($map, $key) { @error "El token `#{$key}` no existe. Opciones: #{map.keys($map)}";
+ }
+
+ @return map.get($map, $key);
+}
+
+@function z($layer) {
+  @return token(t.$z-layers, $layer);
+}
